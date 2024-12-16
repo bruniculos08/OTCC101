@@ -1,0 +1,10 @@
+#! /usr/bin/bash
+parity=$(($$%2))
+# echo $parity
+
+if [ $parity -ne 0 ]; then
+    echo "é ímpar (PID = $$)"
+    exit 0
+fi
+
+echo "é par (PID = $$)"

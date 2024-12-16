@@ -1,0 +1,7 @@
+#! /usr/bin/bash
+
+for i in $(seq 1 $#)
+do
+        index=$(($# - $i + 1))
+        echo "$i - ${!index}"
+done

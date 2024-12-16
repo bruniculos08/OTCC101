@@ -1,0 +1,16 @@
+questão 8)
+        (1) O grupo root e o grupo aves tem o mesmo GID (0)
+
+        (2) A hash do usuário "frajola" está armazenada no arquivo "passwd"
+
+        (3) Existem grupos com "*" no segundo campo do arquivo "gshadow"
+
+        (4) Existem usuários com "*" no segundo campo do arquivo "shadow"
+
+        (5) No arquivo "group" existem grupos com ID fora do intervalo (de 100 - 999)
+
+        (6) O usuário "sshd" tem como GID o ID do usuário "nobody"
+
+        (7)     
+
+

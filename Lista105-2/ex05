@@ -1,0 +1,11 @@
+lista=()
+while [ $# -gt 0 ]
+do
+    lista+=($1)
+    shift
+done
+
+for i in "${lista[@]}"
+do 
+    echo $i
+done

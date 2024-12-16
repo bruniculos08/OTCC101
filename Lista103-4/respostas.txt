@@ -1,0 +1,42 @@
+(1) gcc -Wall -o prog prog.c 2>gcc.log ; grep warning gcc.log
+
+(2) Redirencionando em cmd2 stderr para stdout, isto é,
+
+    cmd1 | cmd2 2>&1 | cmd3 | cmd4
+
+(3) Redirecionando em cmd2 stdout para /dev/null e stderr para stdout, isto é,
+
+    cmd1 | cmd2 1>/dev/null 2>&1 | cmd3 | cmd4
+
+(4) Pois ao se direcionar a saída padrão para 'a' tal arquivo foi criado e portanto não ocorre erro, visto
+    arquivo 'a' já existe então.
+    Não há nada dentro do arquivo 'a' pois ele é criado vazio.
+
+(5) O arquivo 'b' está vazio pois no momento em que 'a' foi definido com saída padrão (em "cp a b >a") este 
+    último foi "zerado" (ou substituído por um arquivo vazio). Não há nada no arquivo 'a'.
+
+(6) Usando por exemplo:
+    
+    wc <<<$nada
+
+    Onde 'nada' é uma variável que de não foi definida tem-se como resultado 1 caracter '\n'; não há sinalização de
+    erro e o comando wc recebe "\n", isto é, recebe algum conteúdo.
+
+    Obs.: uma herestring é basicamente como um echo melhor para certas ocasiões (evita a necessidade de pipe '|'), o que pode ser observado
+    nos seguintes comandos equivalentes:
+
+    echo $var | grep padrao
+    
+    grep padrao <<<$var
+
+    Mais conteúdo sobre herestrings em: https://meleu.sh/here-strings/
+
+(7) for i in $(find . -name "*.py") ; do sha256sum $i ; done
+
+(8) No comando:
+
+    $ find . -name \*.c -exec grep -c \#include {} \;
+
+    Para cada arquivo 'x.c' encontrado pelo 'find' é executado o comando 'grep' com argumentos '#include' e 'x.c' (o fim dos argumentos
+    passados ao '-exec' termina com ';' mas tal caracter tem que ser escapado (assim como '#' por isso o uso das barras). Note que '{}' é 
+    sempre substituido pelo nome do arquivo encontrado pelo 'find'.

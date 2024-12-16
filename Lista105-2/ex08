@@ -1,0 +1,9 @@
+#! /usr/bin/bash
+
+if [ $# -ne 1 ]; then
+        echo "numero de parametros incorreto."
+        exit 0
+fi
+
+name=$(basename -s .c $1)
+gcc $1 -o $name

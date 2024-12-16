@@ -1,0 +1,7 @@
+i=1
+while [ $# -gt 0 ];
+do
+    printf "%d %s\n" $i "$1"
+    ((i=i+1))
+    shift
+done

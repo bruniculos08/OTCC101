@@ -1,0 +1,7 @@
+05.i) Como você pode agora executar o comando ls do sistema sem encerrar o shell?
+
+usr/bin/ls
+
+05.j)Com o que você observou neste exercı́cio, por que é uma má ideia usar o comando abaixo?
+
+Executar PATH=.:$PATH irá por o diretório presente aberto no terminal (independente de qual seja) no PATH, assim se houver um script de mesmo nome que um comando do sistema esse substituirá o comando do sistema.

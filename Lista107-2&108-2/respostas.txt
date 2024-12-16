@@ -1,0 +1,8 @@
+3.a) /var/log/syslog
+3.b) .../auth.log 
+3.c) .../auth.log
+3.d) .../mail.log && .../mail.warn
+3.e) .../local0.log && .../syslog
+3.f) .../err.log && .../syslog
+
+4) logger "$(echo "$(date) $(who | tr -s ' ' '\n' | head -n1) [$?]") (local3.info)"
